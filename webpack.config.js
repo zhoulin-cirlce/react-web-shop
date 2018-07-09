@@ -10,6 +10,12 @@ module.exports={
         filename:"js/app.js"
 
     },
+    resolve:{
+        alias:{
+            page:path.resolve(__dirname,'src/page'),
+            component:path.resolve(__dirname,'src/component')
+        }
+    },
     module:{
         rules:[
             {
@@ -76,7 +82,11 @@ module.exports={
         })
     ],
     devServer:{
-        port:3000
+        port:8000,
+        //任何路径找不到的情况会跳转到index.html
+        historyApiFallback:{
+            index:'/dist/index.html'
+        }
     }
 
 }
